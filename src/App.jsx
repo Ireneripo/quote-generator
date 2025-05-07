@@ -12,6 +12,12 @@ export default function App() {
       });
   }, []);
 
+  React.useEffect(() => {
+    if (quotes.length > 0 && !quote) {
+      getRandomQuote();
+    }
+  }, [quotes]);
+
   function getRandomQuote() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setQuote(randomQuote);
